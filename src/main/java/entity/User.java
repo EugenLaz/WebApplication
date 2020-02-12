@@ -1,13 +1,31 @@
 package entity;
 
 
-
 import javax.persistence.*;
 import java.util.*;
 
 @Entity
 @Table(name = "users")
 public class User {
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE,
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "username"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<UserRole> userRoles = new HashSet<>();
+    private String email;
+    private String name;
+    private String password;
+    private String grp;
+    @Id
+    private String username;
+    public User() {
+        userRoles.add(new UserRole("default"));
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -27,26 +45,6 @@ public class User {
         return Objects.hash(username);
     }
 
-    @ManyToMany(cascade = {
-        CascadeType.PERSIST,
-                CascadeType.MERGE,
-    },fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role",
-            joinColumns = @JoinColumn(name = "username"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private List<UserRole> userRoles = new ArrayList<>();
-    private String email;
-    private String name;
-    private String password;
-    private String grp;
-    @Id
-    private String username;
-
-    public User() {
-        userRoles.add(new UserRole("default"));
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -59,21 +57,20 @@ public class User {
                 '}';
     }
 
-    public List<UserRole> getUserRoles() {
+    public Set<UserRole> getUserRoles() {
         return userRoles;
     }
-
 
     public String getEmail() {
         return email;
     }
 
-    public void addRole(UserRole userRole) {
-        this.userRoles.add(userRole);
-    }
-
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void addRole(UserRole userRole) {
+        this.userRoles.add(userRole);
     }
 
     public String getName() {

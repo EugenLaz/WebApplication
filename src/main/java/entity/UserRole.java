@@ -1,10 +1,7 @@
 package entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "roles")
@@ -13,11 +10,24 @@ public class UserRole  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserRole userRole = (UserRole) o;
+        return roleName.equals(userRole.roleName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(roleName);
+    }
+
     @Column(name = "role_name")
     String roleName;
 
     @ManyToMany(mappedBy = "userRoles")
-    private List<User> posts = new ArrayList<>();
+    private Set<User> roles = new HashSet<>();
 
     @Override
     public String toString() {

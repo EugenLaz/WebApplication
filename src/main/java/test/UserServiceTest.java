@@ -45,7 +45,6 @@ public class UserServiceTest {
     @Test
     public void testLoadUser() throws Exception{
         User fromDbUser = userService.getByUserName("underTest").get();
-        System.out.println(fromDbUser.equals(UserUtil.createUser()));
         Assert.assertEquals(fromDbUser,UserUtil.createUser());
     }
 
