@@ -1,16 +1,41 @@
 package entity;
 
 
+
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
 public class User {
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    List<UserRole> userRoles = new ArrayList<>();
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(userRoles, user.userRoles) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(name, user.name) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(grp, user.grp) &&
+                Objects.equals(username, user.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username);
+    }
+
+    @ManyToMany(cascade = {
+        CascadeType.PERSIST,
+                CascadeType.MERGE,
+    },fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "username"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private List<UserRole> userRoles = new ArrayList<>();
     private String email;
     private String name;
     private String password;
@@ -43,8 +68,8 @@ public class User {
         return email;
     }
 
-    public void setUserRoles(List<UserRole> userRoles) {
-        this.userRoles = userRoles;
+    public void addRole(UserRole userRole) {
+        this.userRoles.add(userRole);
     }
 
     public void setEmail(String email) {
@@ -74,7 +99,6 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
 
     public String getGroup() {
         return grp;

@@ -1,20 +1,23 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "roles")
 public class UserRole  {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "role_name")
     String roleName;
 
-    @ManyToOne
-    @JoinColumn(name="username", nullable=false)
-    private User user;
+    @ManyToMany(mappedBy = "userRoles")
+    private List<User> posts = new ArrayList<>();
 
     @Override
     public String toString() {

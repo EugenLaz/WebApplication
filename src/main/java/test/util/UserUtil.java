@@ -3,9 +3,6 @@ package test.util;
 import entity.User;
 import entity.UserRole;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class UserUtil {
     public static User createUser(){
         User user = new User();
@@ -13,6 +10,8 @@ public class UserUtil {
         user.setGroup("testers");
         user.setEmail("testingEmail");
         user.setPassword("111");
+        user.addRole(new UserRole("admin"));
+        System.out.println(user);
         return user;
     }
 }

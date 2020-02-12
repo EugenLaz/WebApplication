@@ -38,15 +38,16 @@ public class UserServiceTest {
     }
     @Test
     public void testSaveUser() throws Exception {
+        UserUtil.createUser();
         userService.saveUser(UserUtil.createUser());
     }
 
     @Test
     public void testLoadUser() throws Exception{
         User fromDbUser = userService.getByUserName("underTest").get();
-        Assert.assertEquals(UserUtil.createUser(),fromDbUser);
+        System.out.println(fromDbUser.equals(UserUtil.createUser()));
+        Assert.assertEquals(fromDbUser,UserUtil.createUser());
     }
-
 
 
 }

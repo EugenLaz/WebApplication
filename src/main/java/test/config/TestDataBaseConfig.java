@@ -69,7 +69,6 @@ public class TestDataBaseConfig {
         properties.put(PROP_HIBERNATE_DIALECT, PROP_HIBERNATE_DIALECT);
         properties.put(PROP_HIBERNATE_SHOW_SQL, PROP_HIBERNATE_SHOW_SQL);
         properties.put(PROP_HIBERNATE_HBM2DDL_AUTO, PROP_HIBERNATE_HBM2DDL_AUTO);
-
         return properties;
     }
 
