@@ -9,4 +9,5 @@ public interface UserService {
     Optional<User> getByUserName(String username);
     List<User> getAll();
     void saveUser(User user);
+    void deleteUser(String  username);
 }

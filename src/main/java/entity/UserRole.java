@@ -23,7 +23,7 @@ public class UserRole  {
         return Objects.hash(roleName);
     }
 
-    @Column(name = "role_name")
+    @Column(name = "role_name",unique = true)
     String roleName;
 
     @ManyToMany(mappedBy = "userRoles")

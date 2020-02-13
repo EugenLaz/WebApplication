@@ -47,6 +47,10 @@ public class UserServiceTest {
         User fromDbUser = userService.getByUserName("underTest").get();
         Assert.assertEquals(fromDbUser,UserUtil.createUser());
     }
+    @Test
+    public void deleteUser(){
+        userService.deleteUser(UserUtil.createUser().getUsername());
+    }
 
 
 }

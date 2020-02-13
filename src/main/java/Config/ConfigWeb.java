@@ -25,7 +25,6 @@ public class ConfigWeb implements WebMvcConfigurer {
         registry.addViewController("/curator").setViewName("view/Curator/curatorHome");
         registry.addViewController("/student").setViewName("view/Student/studentHome");
         registry.addViewController("/schedule").setViewName("view/Schedule");
-//        registry.addViewController("/change").setViewName("view/ProfileChange");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
 
@@ -45,11 +44,6 @@ public class ConfigWeb implements WebMvcConfigurer {
         viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
-
-//    @Bean
-//    public MultipartResolver multipartResolver() {
-//        return new StandardServletMultipartResolver();
-//    }
 
 
 }
