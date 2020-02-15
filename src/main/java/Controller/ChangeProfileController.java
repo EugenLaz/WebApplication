@@ -2,10 +2,9 @@ package Controller;
 
 
 import Config.Security.MyUserDetails;
-import Services.impl.UserServiceImpl;
+import Services.impl.UserDaoServiceImpl;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,13 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.util.Optional;
 
 @RestController
 public class ChangeProfileController {
 
     @Autowired
-    UserServiceImpl dao;
+    UserDaoServiceImpl dao;
     @Autowired
     private HttpServletRequest request;
 

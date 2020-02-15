@@ -2,7 +2,7 @@ package Services.impl;
 
 import Config.Security.MyUserDetails;
 import DAO.Repository.LessonRepository;
-import Services.LessonService;
+import Services.LessonDaoService;
 import entity.Lesson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,7 +12,7 @@ import java.sql.Date;
 import java.util.List;
 
 @Service
-public class LessonServiceImpl implements LessonService {
+public class LessonDaoServiceImpl implements LessonDaoService {
     @Autowired
     private LessonRepository lessonRepository;
 

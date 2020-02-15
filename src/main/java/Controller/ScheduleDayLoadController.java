@@ -1,7 +1,7 @@
 package Controller;
 
 //import DAO.LessonDaoImpl;
-import Services.impl.LessonServiceImpl;
+import Services.impl.LessonDaoServiceImpl;
 import entity.Lesson;
 //import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import java.util.List;
 public class ScheduleDayLoadController  {
 
     @Autowired
-    LessonServiceImpl service;
+    LessonDaoServiceImpl service;
 
 
     @RequestMapping(value = "/scheduleProcess",method = RequestMethod.GET)
