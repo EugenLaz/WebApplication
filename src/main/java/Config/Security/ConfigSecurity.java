@@ -1,5 +1,6 @@
 package Config.Security;
 
+import Services.PasswordEncodingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,8 +18,11 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
     UserDetailsService userDetailsService;
 
     @Autowired
+    PasswordEncodingService encoder;
+
+    @Autowired
     public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(new PasswordEncod());
+        auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
     }
 
 
