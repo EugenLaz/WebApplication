@@ -2,6 +2,7 @@ package entity;
 
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.*;
 
 @Entity
@@ -21,6 +22,16 @@ public class User {
     private String name;
     private String password;
     private String grp;
+    private BigInteger balance;
+
+    public BigInteger getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigInteger balance) {
+        this.balance = balance;
+    }
+
     @Id
     private String username;
     public User() {
