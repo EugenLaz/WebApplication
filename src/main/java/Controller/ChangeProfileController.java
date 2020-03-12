@@ -18,10 +18,9 @@ import java.io.IOException;
 public class ChangeProfileController {
 
     @Autowired
-    UserDaoServiceImpl dao;
+    private UserDaoServiceImpl dao;
     @Autowired
     private HttpServletRequest request;
-
 
     @RequestMapping(value = "/loadPage")
     public ModelAndView loadStuff() {

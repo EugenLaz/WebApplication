@@ -19,13 +19,13 @@ import javax.servlet.http.HttpServletResponse;
 public class RegistrationController {
 
     @Autowired
-    UserDaoServiceImpl dao;
+    private UserDaoServiceImpl dao;
 
     @Autowired
     private HttpServletRequest request;
 
     @Autowired
-    PasswordEncodingService encoder;
+    private PasswordEncodingService encoder;
 
     @RequestMapping(value = "/register")
     public ModelAndView processData(@RequestParam(name = "j_username") String name, @RequestParam("j_password") Object repetedPassword,

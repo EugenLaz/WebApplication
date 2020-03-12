@@ -16,13 +16,6 @@ public class SecurityHandler implements AuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
-        if (roles.contains("CURATOR")) {
-            response.sendRedirect("/curator");
-        }
-        else if(roles.contains("USER")){
-            response.sendRedirect("/student");
-        }
-        else
-            response.sendRedirect("/failed");
+        response.sendRedirect("/loadPage");
     }
 }

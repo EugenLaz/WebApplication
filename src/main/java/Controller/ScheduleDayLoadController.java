@@ -16,7 +16,7 @@ import java.util.List;
 public class ScheduleDayLoadController  {
 
     @Autowired
-    LessonDaoServiceImpl service;
+    private LessonDaoServiceImpl service;
 
 
     @RequestMapping(value = "/scheduleProcess",method = RequestMethod.GET)

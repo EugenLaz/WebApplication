@@ -15,18 +15,18 @@ public class BCryptPasswordEncodingServiceImpl implements PasswordEncodingServic
         String salt = BCrypt.gensalt(workload);
         String hashed_password = BCrypt.hashpw(charSequence.toString(), salt);
 
-        return(hashed_password);
+        return (hashed_password);
     }
 
     @Override
     public boolean matches(CharSequence charSequence, String s) {
-        boolean password_verified = false;
+        boolean password_verified;
 
-        if(null == s || !s.startsWith("$2a$"))
+        if (null == s || !s.startsWith("$2a$"))
             throw new java.lang.IllegalArgumentException("Invalid hash provided for comparison");
 
         password_verified = BCrypt.checkpw(charSequence.toString(), s);
 
-        return(password_verified);
+        return (password_verified);
     }
 }

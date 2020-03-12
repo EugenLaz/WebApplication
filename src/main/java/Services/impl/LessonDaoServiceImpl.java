@@ -23,6 +23,6 @@ public class LessonDaoServiceImpl implements LessonDaoService {
 
     public List<Lesson> getByDate(Date date) {
         return lessonRepository.findAllByDateTime(date,
-                ((MyUserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getGroup());
+                ((MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getGroup());
     }
 }

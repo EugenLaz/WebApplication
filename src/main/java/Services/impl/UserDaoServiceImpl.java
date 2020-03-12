@@ -4,6 +4,7 @@ import DAO.Repository.UserRepository;
 import Services.UserDaoService;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,19 +21,25 @@ public class UserDaoServiceImpl implements UserDaoService {
     }
 
     @Override
-    public List<User>  getAll() {
+    public List<User> getAll() {
         List<User> user = userRepository.findAll();
-       return user;
+        return user;
     }
 
-    public void saveUser(User user){
+    public boolean saveUser(User user) {
         System.out.println(user.toString());
         userRepository.save(user);
+        return true;
     }
 
     @Override
-    public void deleteUser(String username) {
-        userRepository.deleteById(username);
+    public boolean deleteUser(String username) {
+        try {
+            userRepository.deleteById(username);
+        } catch (EmptyResultDataAccessException e) {
+            return false;
+        }
+        return true;
     }
 
 

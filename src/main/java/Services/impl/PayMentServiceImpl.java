@@ -12,12 +12,15 @@ import java.math.BigInteger;
 @Service
 public class PayMentServiceImpl implements PaymentService {
 
-    @Autowired UserDaoServiceImpl dao;
+    @Autowired
+    UserDaoServiceImpl dao;
 
     @Override
     public boolean processPayment(User fromUser, User toUser, BigInteger amount) {
-        if(fromUser.getBalance().compareTo(amount)<0){
-        return false;
+        if (amount.signum() != 1)
+            return false;
+        if (fromUser.getBalance().compareTo(amount) < 0) {
+            return false;
         }
         fromUser.setBalance(fromUser.getBalance().subtract(amount));
         toUser.setBalance(toUser.getBalance().add(amount));

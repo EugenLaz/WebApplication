@@ -1,13 +1,25 @@
 package entity;
 
 
+import Services.PasswordEncodingService;
+import Services.impl.BCryptPasswordEncodingServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.*;
 
+@Component
 @Entity
 @Table(name = "users")
 public class User {
+
+    @Transient
+    @Autowired
+    private PasswordEncodingService passwordEncoder;
 
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
@@ -23,6 +35,12 @@ public class User {
     private String password;
     private String grp;
     private BigInteger balance;
+    @Id
+    private String username;
+
+    public User() {
+        userRoles.add(new UserRole("default"));
+    }
 
     public BigInteger getBalance() {
         return balance;
@@ -30,12 +48,6 @@ public class User {
 
     public void setBalance(BigInteger balance) {
         this.balance = balance;
-    }
-
-    @Id
-    private String username;
-    public User() {
-        userRoles.add(new UserRole("default"));
     }
 
     @Override

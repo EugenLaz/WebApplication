@@ -10,7 +10,7 @@ import java.io.File;
 public class InitWebApp extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] {ConfigWeb.class ,DataConfig.class, ConfigSecurity.class};
+        return new Class[] {ConfigWeb.class ,DataConfig.class, ConfigSecurity.class,MailConfig.class};
     }
 
     @Override

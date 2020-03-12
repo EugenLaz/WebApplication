@@ -5,10 +5,21 @@ import java.util.*;
 
 @Entity
 @Table(name = "roles")
-public class UserRole  {
+public class UserRole {
+    @Column(name = "role_name", unique = true)
+    String roleName;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @ManyToMany(mappedBy = "userRoles")
+    private Set<User> roles = new HashSet<>();
+
+    public UserRole(String role) {
+        roleName = role;
+    }
+
+    public UserRole() {
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -23,21 +34,9 @@ public class UserRole  {
         return Objects.hash(roleName);
     }
 
-    @Column(name = "role_name",unique = true)
-    String roleName;
-
-    @ManyToMany(mappedBy = "userRoles")
-    private Set<User> roles = new HashSet<>();
-
     @Override
     public String toString() {
-        return  roleName;
-    }
-
-    public UserRole(String role) {
-        roleName = role;
-    }
-    public UserRole() {
+        return roleName;
     }
 
 }

@@ -1,9 +1,11 @@
 package Config;
 
+import Services.impl.BCryptPasswordEncodingServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -15,7 +17,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({"Controller","Config","Services"})
+@ComponentScan({"Controller","Config","Services","entity"})
 public class ConfigWeb implements WebMvcConfigurer {
 
     @Override
@@ -43,6 +45,11 @@ public class ConfigWeb implements WebMvcConfigurer {
         viewResolver.setPrefix("/");
         viewResolver.setSuffix(".jsp");
         return viewResolver;
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncodingServiceImpl();
     }
 
 
