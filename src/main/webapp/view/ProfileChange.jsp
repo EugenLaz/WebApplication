@@ -11,15 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<script type="javascript">
 
-    var image = document.createElement("img");
-    var imageParent = document.getElementById("body");
-    image.id = "pictureForm";
-    image.className = "avatar img-circle";
-    image.src = "resources\\profilePictures\\\${user.username}.png";// image.src = "IMAGE URL/PATH"
-    imageParent.appendChild(image); 
-</script>
 
 <div id="wrapper" class="toggled">
 
@@ -49,11 +41,11 @@
                     <!-- left column -->
                     <div class="col-md-3">
                         <div class="text-center">
-                            <img src="/web-resources/${user.username}.png" id ="pictureForm" class="avatar img-circle" alt="avatar">
+                            <img src="" id ="pictureForm" class="avatar img-circle" alt="avatar">
                             <h6>Upload a different photo...</h6>
                             <form method="POST"  enctype="multipart/form-data" action="/uploadFile">
                                 <table>
-                                    <tr><td><td><input type="file" name="file" /></td></tr>
+                                    <tr><td><td><input type="file" name="file" value="Upload NEW PHOTO" /></td></tr>
                                     <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
                                 </table>
                             </form>

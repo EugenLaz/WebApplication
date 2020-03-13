@@ -87,4 +87,9 @@ public class UserDaoServiceTest {
 
 
 
+    @Test
+    public void getAllTutors(){
+        System.out.println(userDaoService.getAllTutors().toString());
+    }
+
 }

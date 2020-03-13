@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    height: calc(50vw - 5px);  /*instead playing around with grid gap gap */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.container div {
+    margin: 0 5px 5px 0;  /*instead playing around with grid gap gap */
+    background-color: red;
+}
+
+
+.container {
+    counter-reset: test;
+}
+
+.container div {
+    display: flex;  /* or grid */
+}
+
+.container div:before {
+    counter-increment: test;
+    content: 'Div N°:'counter(test)' -';
+    margin: auto;/* center me */
+    color: yellow;
+}

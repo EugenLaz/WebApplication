@@ -42,5 +42,10 @@ public class UserDaoServiceImpl implements UserDaoService {
         return true;
     }
 
+    @Override
+    public List<User> getAllTutors() {
+        return userRepository.getAllTutors();
+    }
+
 
 }

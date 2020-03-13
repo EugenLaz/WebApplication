@@ -10,4 +10,5 @@ public interface UserDaoService {
     List<User> getAll();
     boolean saveUser(User user);
     boolean deleteUser(String  username);
+    List<User> getAllTutors();
 }
