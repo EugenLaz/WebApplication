@@ -1,6 +1,6 @@
 package Config.Security;
 
-import Services.PasswordEncodingService;
+import Services.Security.PasswordEncodingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -28,10 +28,10 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests().antMatchers("/view/**","/curator","/student","/schedule")
-                .authenticated().antMatchers("/curator","/student").authenticated();
-
+//        http
+//                .authorizeRequests().antMatchers("/view/**","/curator","/student","/schedule")
+//                .authenticated().antMatchers("/curator","/student").authenticated();
+        http.authorizeRequests().antMatchers("/tutor/**","/schedule").authenticated();
         http.formLogin()
                 .loginPage("/login")
                 .failureUrl("/login?error")

@@ -3,7 +3,9 @@ package entity;
 
 import javax.persistence.*;
 import java.math.BigInteger;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -23,7 +25,21 @@ public class User {
     private String password;
     private String grp;
     private BigInteger balance;
+    private String personalInfo;
+    @Id
+    private String username;
 
+    public User() {
+        userRoles.add(new UserRole("default"));
+    }
+
+    public String getPersonalInfo() {
+        return personalInfo;
+    }
+
+    public void setPersonalInfo(String personalInfo) {
+        this.personalInfo = personalInfo;
+    }
 
     public BigInteger getBalance() {
         return balance;
@@ -31,12 +47,6 @@ public class User {
 
     public void setBalance(BigInteger balance) {
         this.balance = balance;
-    }
-
-    @Id
-    private String username;
-    public User() {
-        userRoles.add(new UserRole("default"));
     }
 
     @Override
@@ -64,7 +74,9 @@ public class User {
                 ", email='" + email + '\'' +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
-                ", group='" + grp + '\'' +
+                ", grp='" + grp + '\'' +
+                ", balance=" + balance +
+                ", personalInfo='" + personalInfo + '\'' +
                 ", username='" + username + '\'' +
                 '}';
     }

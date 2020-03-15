@@ -1,4 +1,4 @@
-package Config;
+package Config.Other;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

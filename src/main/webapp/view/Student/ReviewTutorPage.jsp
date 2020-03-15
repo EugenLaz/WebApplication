@@ -1,12 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Евгений
-  Date: 09.11.2019
-  Time: 14:38
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setBundle basename="text"/>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="../../resources/css/Style.css">
@@ -43,48 +41,37 @@
 
                     <div class="col-md-3">
                         <div class="text-center">
-                            <img src="" id ="pictureForm" class="avatar img-circle" alt="avatar">
+                            <img src="web-resources/profilePictures/${tutor.username}.png" id ="pictureForm" class="avatar img-circle" alt="avatar">
                         </div>
                     </div>
 
 
-
-                    <!-- edit form column -->
                     <div class="col-md-9 personal-info">
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label">Name:</label>
-                            <div class="col-lg-8">
-                                .....
-                            </div>
-                        </div>
-
-                            <label class="col-lg-3 control-label">Email:</label>
-                            <div class="col-lg-8">
-                                .......
-                            </div>
-                            <label class="col-md-3 control-label">Password:</label>
-                            <div class="col-md-8">
-                                ....
-                            </div>
-                            <label class="col-md-3 control-label">Confirm password:</label>
-                            <div class="col-md-8">
-                                ............
-                            </div>
-                            <label class="col-md-3 control-label"> Other Info</label>
-                            <div class="col-md-8">
-                                ............
-                            </div>
-                            <div>
-                                <button>Send Request</button>
-                            </div>
-
+                        <div>${tutor.username}</div>
+                        <div>${tutor.name}</div>
+                        <div>${tutor.personalInfo}</div>
                     </div>
                 </div>
 
             </div>
 
             <hr>
+            <div class="row">
+                <form method="post"
+                      action="/sendRequest/${tutor.username}">
+<%--                    <div>--%>
+                        <input type="number" placeholder="Price" name="price"/>
+                        <input type="text" placeholder="Place" name="place"/>
+<%--                    </div>--%>
+<%--                    <div>--%>
+                        <input type="datetime-local" placeholder="Date&Time" name="dateTime"/>
+                        <input type="text" placeholder="Additional INFO" name="description"/>
+<%--                    </div>--%>
 
+                    <div><input type="submit"value="submit"/></div>
+                </form>
+            </div>
+            <hr>
         </div>
 
     </div>

@@ -1,7 +1,7 @@
 package Controller;
 
 //import DAO.LessonDaoImpl;
-import Services.impl.LessonDaoServiceImpl;
+import Services.Data.impl.LessonDaoServiceImpl;
 import entity.Lesson;
 //import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;

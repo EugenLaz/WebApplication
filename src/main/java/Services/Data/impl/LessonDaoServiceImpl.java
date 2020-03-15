@@ -1,8 +1,8 @@
-package Services.impl;
+package Services.Data.impl;
 
 import Config.Security.MyUserDetails;
-import DAO.Repository.LessonRepository;
-import Services.LessonDaoService;
+import Services.Data.Repository.LessonRepository;
+import Services.Data.LessonDaoService;
 import entity.Lesson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;

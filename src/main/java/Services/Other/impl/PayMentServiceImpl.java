@@ -1,6 +1,7 @@
-package Services.impl;
+package Services.Other.impl;
 
-import Services.PaymentService;
+import Services.Data.impl.UserDaoServiceImpl;
+import Services.Other.PaymentService;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

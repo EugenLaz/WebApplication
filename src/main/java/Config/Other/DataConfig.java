@@ -1,7 +1,5 @@
-package Config;
+package Config.Other;
 
-//import org.hibernate.ejb.HibernatePersistence;
-//import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.core.env.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +15,9 @@ import java.util.Properties;
 
 @Configuration
 @PropertySource("classpath:app.properties")
-@ComponentScan({"entity","DAO"})
+@ComponentScan({"entity","Services.Data.Repository"})
 @EnableTransactionManagement
-@EnableJpaRepositories("DAO.Repository")
+@EnableJpaRepositories("Services.Data.Repository")
 public class DataConfig {
     private static final String PROP_DATABASE_DRIVER = "db.driver";
     private static final String PROP_DATABASE_PASSWORD = "db.password";

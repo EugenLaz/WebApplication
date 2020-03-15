@@ -1,8 +1,7 @@
-package Services.impl;
+package Services.Security.impl;
 
-import Services.PasswordEncodingService;
+import Services.Security.PasswordEncodingService;
 import org.springframework.security.crypto.bcrypt.BCrypt;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service

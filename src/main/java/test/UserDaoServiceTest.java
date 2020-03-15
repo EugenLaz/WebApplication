@@ -1,24 +1,18 @@
 package test;
 
-import Services.PaymentService;
-import Services.UserDaoService;
+import Services.Data.UserDaoService;
 import entity.User;
 import entity.UserRole;
 import org.junit.*;
 import org.junit.runner.RunWith;
-import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.event.annotation.AfterTestMethod;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import test.config.TestDataBaseConfig;
 
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import java.math.BigInteger;
 import java.util.Optional;
 

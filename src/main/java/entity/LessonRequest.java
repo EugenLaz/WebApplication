@@ -1,17 +1,25 @@
 package entity;
 
-import javax.persistence.Entity;
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 
 public class LessonRequest {
-    public LessonRequest() {
-    }
-
     private long pricePerHour;
     private String place;
     private LocalDateTime dateTime;
+    private String message;
+    private String studentID;
+    private String tutuorID;
+    private boolean approval;
+    public LessonRequest() {
+    }
+    public LessonRequest(long pricePerHour, String place, LocalDateTime dateTime, String studentID, String tutuorID) {
+        this.pricePerHour = pricePerHour;
+        this.place = place;
+        this.dateTime = dateTime;
+        this.studentID = studentID;
+        this.tutuorID = tutuorID;
+    }
 
     @Override
     public String toString() {
@@ -24,19 +32,6 @@ public class LessonRequest {
                 ", tutuorID='" + tutuorID + '\'' +
                 ", approval=" + approval +
                 '}';
-    }
-
-    private String message;
-    private String studentID;
-    private String tutuorID;
-    private boolean approval;
-
-    public LessonRequest(long pricePerHour, String place, LocalDateTime dateTime, String studentID, String tutuorID) {
-        this.pricePerHour = pricePerHour;
-        this.place = place;
-        this.dateTime = dateTime;
-        this.studentID = studentID;
-        this.tutuorID = tutuorID;
     }
 
     public long getPricePerHour() {

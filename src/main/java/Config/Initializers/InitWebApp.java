@@ -1,6 +1,9 @@
-package Config;
+package Config.Initializers;
 
+import Config.Other.DataConfig;
+import Config.Other.MailConfig;
 import Config.Security.ConfigSecurity;
+import Config.Web.ConfigWeb;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.MultipartConfigElement;
@@ -10,7 +13,7 @@ import java.io.File;
 public class InitWebApp extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] {ConfigWeb.class ,DataConfig.class, ConfigSecurity.class,MailConfig.class};
+        return new Class[] {ConfigWeb.class , DataConfig.class, ConfigSecurity.class, MailConfig.class};
     }
 
     @Override

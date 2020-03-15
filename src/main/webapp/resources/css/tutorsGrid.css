@@ -11,7 +11,7 @@
 
 .container div {
     margin: 0 5px 5px 0;  /*instead playing around with grid gap gap */
-    background-color: red;
+
 }
 
 
@@ -20,12 +20,12 @@
 }
 
 .container div {
-    display: flex;  /* or grid */
+    display: grid;  /* or grid */
+    vertical-align: top;
 }
 
 .container div:before {
     counter-increment: test;
-    content: 'Div N°:'counter(test)' -';
-    margin: auto;/* center me */
+    margin: initial;/* center me */
     color: yellow;
 }

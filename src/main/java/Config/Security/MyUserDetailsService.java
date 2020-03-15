@@ -1,7 +1,7 @@
 package Config.Security;
 
 //import DAO.UserDaoImpl;
-import Services.impl.UserDaoServiceImpl;
+import Services.Data.impl.UserDaoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

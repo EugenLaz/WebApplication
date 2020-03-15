@@ -1,7 +1,7 @@
-package Services.impl;
+package Services.Data.impl;
 
-import DAO.Repository.UserRepository;
-import Services.UserDaoService;
+import Services.Data.Repository.UserRepository;
+import Services.Data.UserDaoService;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;

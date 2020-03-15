@@ -1,12 +1,9 @@
 package test.config;
 
 import org.hibernate.jpa.HibernatePersistenceProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -19,7 +16,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan({"entity","DAO","Services"})
-@EnableJpaRepositories("DAO.Repository")
+@EnableJpaRepositories("Services.Data.Repository")
 public class TestDataBaseConfig {
     private static final String PROP_DATABASE_DRIVER = "com.mysql.jdbc.Driver";
     private static final String PROP_DATABASE_PASSWORD = "lopsterita11";

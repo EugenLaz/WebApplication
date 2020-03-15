@@ -2,7 +2,7 @@ package Controller;
 
 
 import Config.Security.MyUserDetails;
-import Services.impl.UserDaoServiceImpl;
+import Services.Data.impl.UserDaoServiceImpl;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -48,9 +48,9 @@ public class ChangeProfileController {
                 SecurityContextHolder.getContext().getAuthentication().getPrincipal())
                 .getUsername();
         User user = dao.getByUserName(username).get();
-        user.setPassword(request.getParameter("Password"));
         user.setEmail(request.getParameter("Email"));
         user.setName(request.getParameter("Name"));
+        user.setPersonalInfo(request.getParameter("About"));
         dao.saveUser(user);
         user = dao.getByUserName(username).get();
         ModelAndView modelAndView = new ModelAndView("view/ProfileChange");
@@ -62,6 +62,8 @@ public class ChangeProfileController {
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView handleFileUpload(@RequestParam("file") MultipartFile file) {
+        if (!file.getContentType().contains("image"))
+            return loadStuff();
         if (!file.isEmpty()) {
             String realPathtoUploads = request.getServletContext().getRealPath("/web-resources/profilePictures/");
             if (!new File(realPathtoUploads).exists()) {

@@ -1,11 +1,9 @@
 package test;
 
-import Services.PaymentService;
-import Services.UserDaoService;
+import Services.Other.PaymentService;
 import entity.User;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +13,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import test.config.TestDataBaseConfig;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import java.math.BigInteger;
 @DirtiesContext
 @RunWith(SpringJUnit4ClassRunner.class)
