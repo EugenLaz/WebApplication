@@ -9,6 +9,6 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User,String> {
 
     @Query(value = "SELECT * FROM users,user_role,roles Where user_role.username = users.username AND user_role.role_id = roles.id AND roles.role_name=\"tutor\"",nativeQuery = true)
-    public List<User> getAllTutors();
+     List<User> getAllTutors();
     
 }

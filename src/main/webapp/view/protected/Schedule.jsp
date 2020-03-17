@@ -7,8 +7,8 @@
 <fmt:setBundle basename="text"/>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="/resources/css/Style.css">
-    <link rel="stylesheet" type="text/css" href="/resources/css/Schedule.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/Style.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/Schedule.css.css">
 <%--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">--%>
 
 </head>
@@ -23,9 +23,15 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <a href="#">
+                <a href="/loadChangePage">
                     Start Bootstrap
                 </a>
+            </li>
+            <li>
+                <a href="/loadRequests">My Requests</a>
+            </li>
+            <li>
+                <a href="/tutorList">List of tutors</a>
             </li>
             <li>
                 <a href="/schedule">Schedule</a>
@@ -44,17 +50,16 @@
             <p/>
             <p/>
             <table>
-                    <c:forEach var="o" items="${objects}">
+                    <c:forEach var="o" items="${lessons}">
                         <tr>
                             <th>${o.time}</th>
-                            <td colspan="4" class="stage-earth">${o.subject}</td>
-
+                            <td colspan="3" class="stage-earth">${o.message}</td>
                         </tr>
                         <tr>
                             <th></th>
-                            <td class="stage-venus">teacher</td>
-                            <td class="stage-saturn">topic</td>
-                            <td class="stage-mercury">details</td>
+                            <td class="stage-mercury">Price:<br>${o.pricePerHour}</td>
+                            <td class="stage-venus">Place:<br>${o.place}</td>
+                            <td class="stage-saturn">Time:<br>${o.time}</td>
                         </tr>
                     </c:forEach>
           </table>

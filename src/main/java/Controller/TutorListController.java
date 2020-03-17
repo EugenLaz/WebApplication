@@ -19,7 +19,7 @@ public class TutorListController {
     @RequestMapping("/tutorList")
     public ModelAndView loadTutors() {
         List<User> tutors = dao.getAllTutors();
-        ModelAndView mav = new ModelAndView("view/Student/TutorsList");
+        ModelAndView mav = new ModelAndView("/view/protected/Student/TutorsList");
         mav.addObject("tutors", tutors);
         System.out.println(tutors.toString());
         return mav;
@@ -29,7 +29,7 @@ public class TutorListController {
     public ModelAndView tutorPage(HttpServletRequest request) {
         String username = request.getRequestURL().substring(
                 request.getRequestURL().lastIndexOf("/")  + 1 );
-        ModelAndView mav = new ModelAndView("view/Student/ReviewTutorPage");
+        ModelAndView mav = new ModelAndView("/view/protected/Student/ReviewTutorPage");
         mav.addObject("tutor",dao.getByUserName(username).get());
         return mav;
     }

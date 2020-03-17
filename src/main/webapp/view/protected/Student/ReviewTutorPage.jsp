@@ -7,7 +7,7 @@
 <fmt:setBundle basename="text"/>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../../resources/css/Style.css">
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/Style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -19,9 +19,15 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <a href="#">
-                    Studentus
+                <a href="/loadChangePage">
+                    Start Bootstrap
                 </a>
+            </li>
+            <li>
+                <a href="/loadRequests">My Requests</a>
+            </li>
+            <li>
+                <a href="/tutorList">List of tutors</a>
             </li>
             <li>
                 <a href="/schedule">Schedule</a>
@@ -59,14 +65,11 @@
             <div class="row">
                 <form method="post"
                       action="/sendRequest/${tutor.username}">
-<%--                    <div>--%>
                         <input type="number" placeholder="Price" name="price"/>
                         <input type="text" placeholder="Place" name="place"/>
-<%--                    </div>--%>
-<%--                    <div>--%>
-                        <input type="datetime-local" placeholder="Date&Time" name="dateTime"/>
+                        <input type="date" placeholder="Date" name="date"/>
+                        <input type="time" name="time" required placeholder="Time">
                         <input type="text" placeholder="Additional INFO" name="description"/>
-<%--                    </div>--%>
 
                     <div><input type="submit"value="submit"/></div>
                 </form>

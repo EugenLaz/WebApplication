@@ -37,7 +37,7 @@ public class ChangeProfileController {
     @RequestMapping(value = "/loadChangePage")
     public ModelAndView loadStuff() {
         User user = dao.getByUserName(((User) request.getSession().getAttribute("user")).getUsername()).get();
-        ModelAndView mav = new ModelAndView("view/ProfileChange");
+        ModelAndView mav = new ModelAndView("view/protected/ProfileChange");
         mav.addObject(user);
         return mav;
     }
@@ -53,7 +53,7 @@ public class ChangeProfileController {
         user.setPersonalInfo(request.getParameter("About"));
         dao.saveUser(user);
         user = dao.getByUserName(username).get();
-        ModelAndView modelAndView = new ModelAndView("view/ProfileChange");
+        ModelAndView modelAndView = new ModelAndView("view/protected/ProfileChange");
         modelAndView.addObject(user);
         return loadStuff();
     }

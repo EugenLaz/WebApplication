@@ -22,10 +22,9 @@ public class ConfigWeb implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("view/LoginPage");
 //        registry.addViewController("/").setViewName("index");
-        registry.addViewController("/schedule").setViewName("view/Schedule");
-        registry.addViewController("/student/tutorReview").setViewName("view/Student/ReviewTutorPage");
-        registry.addViewController("/student/lessonRequest").setViewName("view/Student/SendLessonRequest");
-        registry.addViewController("/student/tutorsList").setViewName("view/Student/TutorsList");
+        registry.addViewController("/schedule").setViewName("view/protected/Schedule");
+        registry.addViewController("/student/tutorReview").setViewName("view/protected/Student/ReviewTutorPage");
+        registry.addViewController("/student/tutorsList").setViewName("view/protected/Student/TutorsList");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
 

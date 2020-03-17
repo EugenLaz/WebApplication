@@ -1,37 +1,71 @@
 package entity;
 
+
+import javax.persistence.*;
+import java.sql.Date;
+import java.sql.Time;
 import java.time.LocalDateTime;
 
-
+@Entity
+@Table(name = "requests")
 public class LessonRequest {
     private long pricePerHour;
     private String place;
-    private LocalDateTime dateTime;
+    private Date date;
+    private Time time;
     private String message;
     private String studentID;
-    private String tutuorID;
-    private boolean approval;
+    private String tutorID;
+    private String status;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long requestID;
+
     public LessonRequest() {
-    }
-    public LessonRequest(long pricePerHour, String place, LocalDateTime dateTime, String studentID, String tutuorID) {
-        this.pricePerHour = pricePerHour;
-        this.place = place;
-        this.dateTime = dateTime;
-        this.studentID = studentID;
-        this.tutuorID = tutuorID;
+        status = LessonRequestStatus.New.toString();
     }
 
-    @Override
-    public String toString() {
-        return "LessonRequest{" +
-                "pricePerHour=" + pricePerHour +
-                ", place='" + place + '\'' +
-                ", dateTime=" + dateTime +
-                ", message='" + message + '\'' +
-                ", studentID='" + studentID + '\'' +
-                ", tutuorID='" + tutuorID + '\'' +
-                ", approval=" + approval +
-                '}';
+
+    public LessonRequest(long pricePerHour, String place, Date date,Time time, String studentID, String tutuorID) {
+        this.pricePerHour = pricePerHour;
+        this.place = place;
+        this.date=date;
+        this.time = time;
+        this.studentID = studentID;
+        this.tutorID = tutuorID;
+        status = LessonRequestStatus.New.toString();
+    }
+
+    public String getTutorID() {
+        return tutorID;
+    }
+
+    public long getRequestID() {
+        return requestID;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(LessonRequestStatus status) {
+        this.status = status.toString();
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
     }
 
     public long getPricePerHour() {
@@ -50,13 +84,6 @@ public class LessonRequest {
         this.place = place;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
 
     public String getMessage() {
         return message;
@@ -75,10 +102,10 @@ public class LessonRequest {
     }
 
     public String getTutuorID() {
-        return tutuorID;
+        return tutorID;
     }
 
     public void setTutuorID(String tutuorID) {
-        this.tutuorID = tutuorID;
+        this.tutorID = tutuorID;
     }
 }
