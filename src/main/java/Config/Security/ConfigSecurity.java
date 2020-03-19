@@ -28,10 +28,7 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http
-//                .authorizeRequests().antMatchers("/view/**","/curator","/student","/schedule")
-//                .authenticated().antMatchers("/curator","/student").authenticated();
-        http.authorizeRequests().antMatchers("/tutor/**","/schedule").authenticated();
+        http.authorizeRequests().antMatchers("/tutor/**", "/schedule").authenticated();
         http.formLogin()
                 .loginPage("/login")
                 .failureUrl("/login?error")

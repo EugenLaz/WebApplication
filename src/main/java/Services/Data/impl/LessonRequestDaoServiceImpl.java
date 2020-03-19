@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
+
 @Service
 public class LessonRequestDaoServiceImpl implements LessonRequestDaoService {
 
@@ -24,7 +25,7 @@ public class LessonRequestDaoServiceImpl implements LessonRequestDaoService {
 
     @Override
     public void saveLessonRequest(LessonRequest lessonRequest) {
-         repository.save(lessonRequest);
+        repository.save(lessonRequest);
     }
 
     @Override

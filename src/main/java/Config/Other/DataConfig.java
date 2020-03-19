@@ -9,13 +9,14 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
 import javax.sql.DataSource;
 
 import java.util.Properties;
 
 @Configuration
 @PropertySource("classpath:app.properties")
-@ComponentScan({"entity","Services.Data.Repository"})
+@ComponentScan({"entity", "Services.Data.Repository"})
 @EnableTransactionManagement
 @EnableJpaRepositories("Services.Data.Repository")
 public class DataConfig {

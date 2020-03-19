@@ -13,7 +13,7 @@ import java.io.File;
 public class InitWebApp extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] {ConfigWeb.class , DataConfig.class, ConfigSecurity.class, MailConfig.class};
+        return new Class[]{ConfigWeb.class, DataConfig.class, ConfigSecurity.class, MailConfig.class};
     }
 
     @Override
@@ -23,7 +23,7 @@ public class InitWebApp extends AbstractAnnotationConfigDispatcherServletInitial
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] {"/"};
+        return new String[]{"/"};
     }
 
     @Override

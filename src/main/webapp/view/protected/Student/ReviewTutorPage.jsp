@@ -47,7 +47,8 @@
 
                     <div class="col-md-3">
                         <div class="text-center">
-                            <img src="web-resources/profilePictures/${tutor.username}.png" id ="pictureForm" class="avatar img-circle" alt="avatar">
+                            <img src="web-resources/profilePictures/${tutor.username}.png" id="pictureForm"
+                                 class="avatar img-circle" alt="avatar">
                         </div>
                     </div>
 
@@ -65,13 +66,13 @@
             <div class="row">
                 <form method="post"
                       action="/sendRequest/${tutor.username}">
-                        <input type="number" placeholder="Price" name="price"/>
-                        <input type="text" placeholder="Place" name="place"/>
-                        <input type="date" placeholder="Date" name="date"/>
-                        <input type="time" name="time" required placeholder="Time">
-                        <input type="text" placeholder="Additional INFO" name="description"/>
+                    <input type="number" placeholder="Price" name="price"/>
+                    <input type="text" placeholder="Place" name="place"/>
+                    <input type="date" placeholder="Date" name="date"/>
+                    <input type="time" name="time" required placeholder="Time">
+                    <input type="text" placeholder="Additional INFO" name="description"/>
 
-                    <div><input type="submit"value="submit"/></div>
+                    <div><input type="submit" value="submit"/></div>
                 </form>
             </div>
             <hr>

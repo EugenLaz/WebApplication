@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({"Controller","Config","Services","entity"})
+@ComponentScan({"Controller", "Config", "Services", "entity"})
 public class ConfigWeb implements WebMvcConfigurer {
 
     @Override

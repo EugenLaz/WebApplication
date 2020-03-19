@@ -20,13 +20,13 @@ public class LessonRequestManagmentController {
     private LessonRequestDaoServiceImpl dao;
 
     @RequestMapping("/acceptRequest/{id}")
-    public ModelAndView acceptRequest(@PathVariable("id") int id,HttpServletRequest request){
+    public ModelAndView acceptRequest(@PathVariable("id") int id, HttpServletRequest request) {
         dao.changeStatus(id, LessonRequestStatus.Approved);
         return loadRequests(request);
     }
 
     @RequestMapping("/declineRequest/{id}")
-    public ModelAndView declineRequest(@PathVariable("id") int id,HttpServletRequest request){
+    public ModelAndView declineRequest(@PathVariable("id") int id, HttpServletRequest request) {
         dao.changeStatus(id, LessonRequestStatus.Rejected);
         return loadRequests(request);
     }

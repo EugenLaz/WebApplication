@@ -26,7 +26,7 @@ public class LessonRequestPassingController {
     @RequestMapping(value = "/sendRequest/*")
     public ModelAndView parseRequest(HttpServletRequest request) {
         LessonRequest lessonRequest = new LessonRequest();
-        SimpleDateFormat format= new SimpleDateFormat("hh:mm:ss a");
+        SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss a");
 
 
         lessonRequest.setPricePerHour(Integer.valueOf(request.getParameter("price")));

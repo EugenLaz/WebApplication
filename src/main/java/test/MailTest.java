@@ -18,19 +18,19 @@ import test.config.TestDataBaseConfig;
 @WebAppConfiguration
 public class MailTest {
 
+    static String message = "message";
+    static String subject = "topic";
     @Autowired
     MailService sender;
 
-    static String message="message";
-    static String subject ="topic";
     @Test
-    public void shouldSendEmailOnExistingAdress(){
-        sender.sendSimpleMessage("<lazhynce@gmail.com>",subject,message);
+    public void shouldSendEmailOnExistingAdress() {
+        sender.sendSimpleMessage("<lazhynce@gmail.com>", subject, message);
     }
 
-    @Test(expected =org.springframework.mail.MailSendException.class)
-    public void shouldSendErrorOnInvalidEmail(){
-        sender.sendSimpleMessage("<lazhynce>",subject,message);
+    @Test(expected = org.springframework.mail.MailSendException.class)
+    public void shouldSendErrorOnInvalidEmail() {
+        sender.sendSimpleMessage("<lazhynce>", subject, message);
     }
 
 

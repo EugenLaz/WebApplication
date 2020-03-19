@@ -52,29 +52,28 @@
                             </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="request" items="${requests}">
-                                    <tr>
-                                        <td class="column1">${request.requestID}</td>
-                                        <td class="column2">${request.studentID}</td>
-                                        <td class="column3">${request.place}</td>
-                                        <td class="column4">${request.pricePerHour}/hour</td>
-                                        <td class="column5">${request.message}</td>
-                                    </tr>
-                                    <tr>
+                            <c:forEach var="request" items="${requests}">
+                                <tr>
+                                    <td class="column1">${request.requestID}</td>
+                                    <td class="column2">${request.studentID}</td>
+                                    <td class="column3">${request.place}</td>
+                                    <td class="column4">${request.pricePerHour}/hour</td>
+                                    <td class="column5">${request.message}</td>
+                                </tr>
+                                <tr>
 
-                                        <td class="column1"><a href="/acceptRequest/${request.requestID}">ACCEPT</a></td>
-                                        <td class="column2"><a href="/declineRequest/${request.requestID}">DECLINE</a></td>
-                                        <td class="column3"></td>
-                                        <td class="column4"></td>
-                                        <td class="column5"></td>
-                                    </tr>
-                                </c:forEach>
+                                    <td class="column1"><a href="/acceptRequest/${request.requestID}">ACCEPT</a></td>
+                                    <td class="column2"><a href="/declineRequest/${request.requestID}">DECLINE</a></td>
+                                    <td class="column3"></td>
+                                    <td class="column4"></td>
+                                    <td class="column5"></td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-
 
 
         </div>

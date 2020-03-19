@@ -1,6 +1,7 @@
 package Controller;
 
 //import DAO.LessonDaoImpl;
+
 import Services.Data.impl.LessonRequestDaoServiceImpl;
 //import org.springframework.security.core.context.SecurityContextHolder;
 import entity.LessonRequest;
@@ -15,22 +16,21 @@ import java.util.Comparator;
 import java.util.List;
 
 @RestController
-public class ScheduleDayLoadController  {
-
-    @Autowired
-    private LessonRequestDaoServiceImpl dao;
+public class ScheduleDayLoadController {
 
     @Autowired
     HttpServletRequest request;
+    @Autowired
+    private LessonRequestDaoServiceImpl dao;
 
     @RequestMapping(value = "/scheduleProcess")
-    public ModelAndView getLessons(@RequestParam(name = "chosenDate") String choosenDate){
-        Date date =  Date.valueOf(choosenDate);
+    public ModelAndView getLessons(@RequestParam(name = "chosenDate") String choosenDate) {
+        Date date = Date.valueOf(choosenDate);
         ModelAndView modelAndView = new ModelAndView("view/protected/Schedule");
-        List<LessonRequest> result = dao.findAllApprovedByDate(((User) request.getSession().getAttribute("user")).getUsername(),date);
+        List<LessonRequest> result = dao.findAllApprovedByDate(((User) request.getSession().getAttribute("user")).getUsername(), date);
         result.sort(Comparator.comparing(LessonRequest::getDate));
         System.out.println(result.toString());
-        modelAndView.addObject("lessons",result);
+        modelAndView.addObject("lessons", result);
 
         return modelAndView;
     }

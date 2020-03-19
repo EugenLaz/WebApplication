@@ -22,12 +22,12 @@ import java.util.Optional;
 @WebAppConfiguration
 public class UserDaoServiceTest {
 
+    User user;
     @Autowired
     private UserDaoService userDaoService;
 
-    User user;
     @Before
-    public void initUser(){
+    public void initUser() {
         user = new User();
         user.setUsername("underTest");
         user.setGroup("testers");
@@ -43,19 +43,20 @@ public class UserDaoServiceTest {
     }
 
     @Test
-    public void shouldLoadUserByExistingName() throws Exception{
+    public void shouldLoadUserByExistingName() throws Exception {
         userDaoService.saveUser(user);
         User fromDbUser = userDaoService.getByUserName("underTest").get();
-        Assert.assertEquals(user,fromDbUser);
+        Assert.assertEquals(user, fromDbUser);
     }
 
     @Test
-    public void shouldReturnEmptyOnNonExisitingUser(){
+    public void shouldReturnEmptyOnNonExisitingUser() {
         Assert.assertEquals(Optional.empty(),
                 userDaoService.getByUserName("nonExisting"));
     }
+
     @Test
-    public void shouldUpdatedUsersName(){
+    public void shouldUpdatedUsersName() {
         userDaoService.saveUser(user);
         user.setName("newName");
         userDaoService.saveUser(user);
@@ -65,24 +66,23 @@ public class UserDaoServiceTest {
 
 
     @Test
-    public void shouldDeleteUserByUsername(){
+    public void shouldDeleteUserByUsername() {
         userDaoService.saveUser(user);
         Assert.assertTrue(
-        userDaoService.deleteUser(user.getUsername())
+                userDaoService.deleteUser(user.getUsername())
         );
-        Assert.assertEquals(Optional.empty(),userDaoService.getByUserName(user.getUsername()));
+        Assert.assertEquals(Optional.empty(), userDaoService.getByUserName(user.getUsername()));
     }
+
     @Test
-    public void shouldReturnFalseOnNonExistingUserDelete(){
+    public void shouldReturnFalseOnNonExistingUserDelete() {
         Assert.assertFalse(
-        userDaoService.deleteUser("nonExist"));
+                userDaoService.deleteUser("nonExist"));
     }
 
 
-
-
     @Test
-    public void getAllTutors(){
+    public void getAllTutors() {
         System.out.println(userDaoService.getAllTutors().toString());
     }
 

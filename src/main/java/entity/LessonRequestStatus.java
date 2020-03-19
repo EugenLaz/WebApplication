@@ -1,7 +1,7 @@
 package entity;
 
 public enum LessonRequestStatus {
-     Rejected,
-     Approved,
-     New
+    Rejected,
+    Approved,
+    New
 }

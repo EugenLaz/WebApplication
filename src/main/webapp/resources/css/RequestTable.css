@@ -1,5 +1,3 @@
-
-
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 * {
@@ -31,9 +29,13 @@ a:hover {
 }
 
 /* ------------------------------------ */
-h1,h2,h3,h4,h5,h6 {margin: 0px;}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+}
 
-p {margin: 0px;}
+p {
+    margin: 0px;
+}
 
 ul, li {
     margin: 0px;
@@ -73,14 +75,8 @@ iframe {
 }
 
 
-
-
 /*//////////////////////////////////////////////////////////////////
 [ Utiliti ]*/
-
-
-
-
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -120,37 +116,46 @@ table {
     margin: 0 auto;
     position: relative;
 }
+
 table * {
     position: relative;
 }
+
 table td, table th {
     padding-left: 8px;
 }
+
 table thead tr {
     height: 60px;
     background: #36304a;
 }
+
 table tbody tr {
     height: 50px;
 }
+
 table tbody tr:last-child {
     border: 0;
 }
+
 table td, table th {
     text-align: left;
 }
+
 table td.l, table th.l {
     text-align: right;
 }
+
 table td.c, table th.c {
     text-align: center;
 }
+
 table td.r, table th.r {
     text-align: center;
 }
 
 
-.table100-head th{
+.table100-head th {
     font-family: OpenSans-Regular;
     font-size: 18px;
     color: #fff;
@@ -193,7 +198,7 @@ tbody tr:hover {
     width: 110px;
 }
 
-.column5{
+.column5 {
     width: 222px;
     text-align: right;
     padding-right: 62px;
@@ -204,23 +209,29 @@ tbody tr:hover {
     table {
         display: block;
     }
+
     table > *, table tr, table td, table th {
         display: block;
     }
+
     table thead {
         display: none;
     }
+
     table tbody tr {
         height: auto;
         padding: 37px 0;
     }
+
     table tbody tr td {
         padding-left: 40% !important;
         margin-bottom: 24px;
     }
+
     table tbody tr td:last-child {
         margin-bottom: 0;
     }
+
     table tbody tr td:before {
         font-family: OpenSans-Regular;
         font-size: 14px;
@@ -232,28 +243,35 @@ tbody tr:hover {
         left: 30px;
         top: 0;
     }
+
     table tbody tr td:nth-child(1):before {
         content: "Date";
     }
+
     table tbody tr td:nth-child(2):before {
         content: "Order ID";
     }
+
     table tbody tr td:nth-child(3):before {
         content: "Name";
     }
+
     table tbody tr td:nth-child(4):before {
         content: "Price";
     }
+
     table tbody tr td:nth-child(5):before {
         content: "Quantity";
     }
+
     table tbody tr td:nth-child(6):before {
         content: "Total";
     }
 
-    .column4{
+    .column4 {
         text-align: left;
     }
+
     .column4,
     .column1,
     .column2,

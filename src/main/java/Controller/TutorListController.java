@@ -28,9 +28,9 @@ public class TutorListController {
     @RequestMapping("/openTutor/*")
     public ModelAndView tutorPage(HttpServletRequest request) {
         String username = request.getRequestURL().substring(
-                request.getRequestURL().lastIndexOf("/")  + 1 );
+                request.getRequestURL().lastIndexOf("/") + 1);
         ModelAndView mav = new ModelAndView("/view/protected/Student/ReviewTutorPage");
-        mav.addObject("tutor",dao.getByUserName(username).get());
+        mav.addObject("tutor", dao.getByUserName(username).get());
         return mav;
     }
 

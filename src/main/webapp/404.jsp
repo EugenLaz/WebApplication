@@ -10,7 +10,7 @@
 <head>
     <title>Error</title>
 </head>
-<body>
-SORRY FOR YOUR LOSS IT'S A CUSTOM ERROR PAGE
-</body>
+    <body>
+        SORRY FOR YOUR LOSS IT'S A CUSTOM ERROR PAGE
+    </body>
 </html>

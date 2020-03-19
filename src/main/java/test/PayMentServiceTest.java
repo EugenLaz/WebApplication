@@ -14,6 +14,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import test.config.TestDataBaseConfig;
 
 import java.math.BigInteger;
+
 @DirtiesContext
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = TestDataBaseConfig.class)
@@ -25,8 +26,9 @@ public class PayMentServiceTest {
 
     private User fromUser;
     private User toUser;
+
     @Before
-    public void initUsers(){
+    public void initUsers() {
         fromUser = new User();
         fromUser.setUsername("fromUser");
         fromUser.setPassword("12");
@@ -38,25 +40,28 @@ public class PayMentServiceTest {
     }
 
     @Test
-    public void shouldFailIfNotEnoughBalance(){
-        Assert.assertFalse(paymentService.processPayment(fromUser,toUser,BigInteger.valueOf(220)));
+    public void shouldFailIfNotEnoughBalance() {
+        Assert.assertFalse(paymentService.processPayment(fromUser, toUser, BigInteger.valueOf(220)));
     }
+
     @Test
-    public void shouldMakeStandartPayment(){
-        Assert.assertTrue(paymentService.processPayment(fromUser,toUser,BigInteger.valueOf(50)));
-        Assert.assertEquals(BigInteger.valueOf(50),fromUser.getBalance());
-        Assert.assertEquals(BigInteger.valueOf(180),toUser.getBalance());
+    public void shouldMakeStandartPayment() {
+        Assert.assertTrue(paymentService.processPayment(fromUser, toUser, BigInteger.valueOf(50)));
+        Assert.assertEquals(BigInteger.valueOf(50), fromUser.getBalance());
+        Assert.assertEquals(BigInteger.valueOf(180), toUser.getBalance());
     }
+
     @Test
-    public void shouldFailOnZeroPayment(){
+    public void shouldFailOnZeroPayment() {
         Assert.assertFalse(
-        paymentService.processPayment(fromUser,toUser,BigInteger.valueOf(0))
+                paymentService.processPayment(fromUser, toUser, BigInteger.valueOf(0))
         );
     }
+
     @Test
-    public void shouldFailOnNegativeValuePayment(){
+    public void shouldFailOnNegativeValuePayment() {
         Assert.assertFalse(
-                paymentService.processPayment(fromUser,toUser,BigInteger.valueOf(-1))
+                paymentService.processPayment(fromUser, toUser, BigInteger.valueOf(-1))
         );
     }
 

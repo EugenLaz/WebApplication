@@ -7,8 +7,12 @@ import java.util.Optional;
 
 public interface UserDaoService {
     Optional<User> getByUserName(String username);
+
     List<User> getAll();
+
     boolean saveUser(User user);
-    boolean deleteUser(String  username);
+
+    boolean deleteUser(String username);
+
     List<User> getAllTutors();
 }

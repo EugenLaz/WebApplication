@@ -15,7 +15,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({"entity","DAO","Services"})
+@ComponentScan({"entity", "DAO", "Services"})
 @EnableJpaRepositories("Services.Data.Repository")
 public class TestDataBaseConfig {
     private static final String PROP_DATABASE_DRIVER = "com.mysql.jdbc.Driver";

@@ -11,6 +11,14 @@ import java.util.Set;
 @Table(name = "users")
 public class User {
 
+    @Id
+    private String username;
+    private String email;
+    private String name;
+    private String password;
+    private String grp;
+    private BigInteger balance;
+    private String personalInfo;
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE,
@@ -20,14 +28,8 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<UserRole> userRoles = new HashSet<>();
-    private String email;
-    private String name;
-    private String password;
-    private String grp;
-    private BigInteger balance;
-    private String personalInfo;
-    @Id
-    private String username;
+
+
 
     public User() {
         userRoles.add(new UserRole("default"));

@@ -9,6 +9,9 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "requests")
 public class LessonRequest {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long requestID;
     private long pricePerHour;
     private String place;
     private Date date;
@@ -17,24 +20,12 @@ public class LessonRequest {
     private String studentID;
     private String tutorID;
     private String status;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long requestID;
+
 
     public LessonRequest() {
         status = LessonRequestStatus.New.toString();
     }
 
-
-    public LessonRequest(long pricePerHour, String place, Date date,Time time, String studentID, String tutuorID) {
-        this.pricePerHour = pricePerHour;
-        this.place = place;
-        this.date=date;
-        this.time = time;
-        this.studentID = studentID;
-        this.tutorID = tutuorID;
-        status = LessonRequestStatus.New.toString();
-    }
 
     public String getTutorID() {
         return tutorID;
@@ -42,10 +33,6 @@ public class LessonRequest {
 
     public long getRequestID() {
         return requestID;
-    }
-
-    public String getStatus() {
-        return status;
     }
 
     public void setStatus(LessonRequestStatus status) {

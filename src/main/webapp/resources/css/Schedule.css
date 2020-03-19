@@ -1,11 +1,11 @@
 
-
 table {
-        min-height: 70vh;
+    min-height: 70vh;
     max-height: 200vh;
     font-family: -system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     width: 100%;
-    max-width: 50rem;}
+    max-width: 50rem;
+}
 
 tr:nth-child(even) th {
     color: #ccc;
@@ -37,9 +37,26 @@ td > span {
     width: 100%;
 }
 
-.stage-earth {background-color: #FFA726}
-.stage-mercury {background-color: #9CCC65}
-.stage-venus {background-color: #FF8A65}
-.stage-mars {background-color: #B3E5FC}
-.stage-jupiter {background-color: #81D4FA}
-.stage-saturn {background-color: #26C6DA}
+.stage-earth {
+    background-color: #FFA726
+}
+
+.stage-mercury {
+    background-color: #9CCC65
+}
+
+.stage-venus {
+    background-color: #FF8A65
+}
+
+.stage-mars {
+    background-color: #B3E5FC
+}
+
+.stage-jupiter {
+    background-color: #81D4FA
+}
+
+.stage-saturn {
+    background-color: #26C6DA
+}

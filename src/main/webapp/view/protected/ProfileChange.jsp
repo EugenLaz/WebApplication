@@ -8,7 +8,8 @@
 <head>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../resources/css/Style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 
@@ -47,41 +48,49 @@
                     <!-- left column -->
                     <div class="col-md-3">
                         <div class="text-center">
-                            <img src="web-resources/profilePictures/${user.username}.png" id ="pictureForm" class="avatar img-circle" alt="avatar">
+                            <img src="web-resources/profilePictures/${user.username}.png" id="pictureForm"
+                                 class="avatar img-circle" alt="avatar">
                             <h6>Upload a different photo...</h6>
-                            <form method="POST"  enctype="multipart/form-data" action="/uploadFile">
+                            <form method="POST" enctype="multipart/form-data" action="/uploadFile">
                                 <table>
-                                    <tr><td><td><input type="file" name="file" value="Upload NEW PHOTO" /></td></tr>
-                                    <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+                                    <tr>
+                                        <td>
+                                        <td><input type="file" name="file" value="Upload NEW PHOTO"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><input type="submit" value="Upload"/></td>
+                                    </tr>
                                 </table>
                             </form>
                         </div>
                     </div>
 
                     <!-- edit form column -->
-                    <div class="col-md-9 personal-info"><form class="form-horizontal" action="/changesProcess" role="form">
-                        <div class="form-group">
+                    <div class="col-md-9 personal-info">
+                        <form class="form-horizontal" action="/changesProcess" role="form">
+                            <div class="form-group">
                                 <label class="col-lg-3 control-label">Name:</label>
                                 <div class="col-lg-8">
-                                    <input class="form-control" name = "Name" type="text" value="${user.name}">
+                                    <input class="form-control" name="Name" type="text" value="${user.name}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">Email:</label>
                                 <div class="col-lg-8">
-                                    <input class="form-control" name ="Email" type="text" value="${user.email}">
+                                    <input class="form-control" name="Email" type="text" value="${user.email}">
                                 </div>
                             </div>
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label">About:</label>
-                            <div class="col-lg-8">
-                                <input class="form-control" name ="About" type="text" value="${user.personalInfo}">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">About:</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" name="About" type="text" value="${user.personalInfo}">
+                                </div>
                             </div>
-                        </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label"></label>
                                 <div class="col-md-8">
-                                    <input type="submit"  class="btn btn-primary" value="Save Changes">
+                                    <input type="submit" class="btn btn-primary" value="Save Changes">
                                     <span></span>
                                     <input type="reset" class="btn btn-default" value="Cancel">
                                 </div>
