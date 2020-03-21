@@ -21,4 +21,6 @@ public class SecurityHandler implements AuthenticationSuccessHandler {
                 ((MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser());
             response.sendRedirect("/loadChangePage");
     }
+
+
 }

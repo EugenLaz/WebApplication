@@ -31,13 +31,13 @@ public class LessonRequestManagmentController {
         return loadRequests(request);
     }
 
-    @RequestMapping(value = "/loadRequests")
+    @RequestMapping(value = "/tutor/loadRequests")
     public ModelAndView loadRequests(HttpServletRequest request) {
         String loggedUser = ((User) request.getSession().getAttribute("user"))
                 .getUsername();
         List<LessonRequest> lessonRequests;
         lessonRequests = dao.findByUser(loggedUser);
-        ModelAndView mav = new ModelAndView("view/protected/MyRequest");
+        ModelAndView mav = new ModelAndView("view/protected/Curator/MyRequest");
         mav.addObject("requests", lessonRequests);
         return mav;
     }

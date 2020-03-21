@@ -6,8 +6,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../../resources/css/RequestTable.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/Style.css">
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/RequestTable.css">
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/Style.css">
     <title>Title</title>
 </head>
 <body>
@@ -18,17 +18,20 @@
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
                 <a href="/loadChangePage">
-                    Start Bootstrap
+                    My Profile
                 </a>
             </li>
             <li>
-                <a href="/loadRequests">My Requests</a>
+                <a href="/tutor/loadRequests">My Requests</a>
             </li>
             <li>
-                <a href="/tutorList">List of tutors</a>
+                <a href="/student/tutorList">List of tutors</a>
             </li>
             <li>
-                <a href="/schedule">Schedule</a>
+                <a href="/protected/schedule">Schedule</a>
+            </li>
+            <li>
+                <a href="/logout">Logout</a>
             </li>
         </ul>
     </div>

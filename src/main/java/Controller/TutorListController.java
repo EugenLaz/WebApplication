@@ -16,7 +16,7 @@ public class TutorListController {
     @Autowired
     UserDaoServiceImpl dao;
 
-    @RequestMapping("/tutorList")
+    @RequestMapping("/student/tutorList")
     public ModelAndView loadTutors() {
         List<User> tutors = dao.getAllTutors();
         ModelAndView mav = new ModelAndView("/view/protected/Student/TutorsList");
@@ -25,7 +25,7 @@ public class TutorListController {
         return mav;
     }
 
-    @RequestMapping("/openTutor/*")
+    @RequestMapping("/student/openTutor/*")
     public ModelAndView tutorPage(HttpServletRequest request) {
         String username = request.getRequestURL().substring(
                 request.getRequestURL().lastIndexOf("/") + 1);

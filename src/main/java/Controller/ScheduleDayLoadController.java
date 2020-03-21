@@ -23,7 +23,7 @@ public class ScheduleDayLoadController {
     @Autowired
     private LessonRequestDaoServiceImpl dao;
 
-    @RequestMapping(value = "/scheduleProcess")
+    @RequestMapping(value = "/protected/scheduleProcess")
     public ModelAndView getLessons(@RequestParam(name = "chosenDate") String choosenDate) {
         Date date = Date.valueOf(choosenDate);
         ModelAndView modelAndView = new ModelAndView("view/protected/Schedule");

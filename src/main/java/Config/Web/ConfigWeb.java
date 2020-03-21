@@ -21,8 +21,9 @@ public class ConfigWeb implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("view/LoginPage");
-//        registry.addViewController("/").setViewName("index");
-        registry.addViewController("/schedule").setViewName("view/protected/Schedule");
+        registry.addViewController("/start").setViewName("index");
+        registry.addViewController("/protected/schedule").setViewName("view/protected/Schedule");
+        registry.addViewController("/protected/loadProfile").setViewName("view/protected/ProfileChange");
         registry.addViewController("/student/tutorReview").setViewName("view/protected/Student/ReviewTutorPage");
         registry.addViewController("/student/tutorsList").setViewName("view/protected/Student/TutorsList");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);

@@ -28,14 +28,15 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/tutor/**", "/schedule").authenticated();
+        http.authorizeRequests().antMatchers("/tutor/**", "/student/**","/loadChangePage").authenticated();
         http.formLogin()
                 .loginPage("/login")
                 .failureUrl("/login?error")
                 .usernameParameter("j_username")
                 .passwordParameter("j_password")
                 .successHandler(successHandler)
-                .permitAll().and().csrf().disable();
+                .permitAll().and().csrf().disable()
+                .logout().logoutUrl("/logout").logoutSuccessUrl("/start");
     }
 
 }
